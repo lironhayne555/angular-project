@@ -1,0 +1,70 @@
+<app-title [title]="customersTitle" [icon]="iconClass"></app-title>
+<form
+  [formGroup]="editCustomerForm"
+  (ngSubmit)="onSubmit()"
+  class="row g-5 container mt-3 d-flex justify-content-center align-items-center"
+>
+  <div class="col-md-5">
+    <span class="text-danger">*</span>
+    <div>First Name</div>
+    <input
+      formControlName="firstName"
+      type="text"
+      class="form-control mt-2"
+      placeholder="First Name"
+    />
+  </div>
+  <div class="col-md-5">
+    <span class="text-danger">*</span>
+    <div>Last Name</div>
+    <input
+      formControlName="lastName"
+      type="text"
+      class="form-control mt-2"
+      placeholder="Last Name"
+    />
+  </div>
+  <div class="col-md-5">
+    <span class="text-danger">*</span>
+    <div>Phone</div>
+    <input
+      formControlName="phone"
+      type="text"
+      class="form-control mt-2"
+      placeholder="Phone"
+    />
+  </div>
+  <div class="col-md-5">
+    <span class="text-danger">*</span>
+    <div>Email</div>
+    <input
+      formControlName="email mt-2"
+      type="text"
+      class="form-control mt-2"
+      placeholder="email@gmail.com"
+    />
+  </div>
+  <div class="col-md-5">
+    <div>Address</div>
+    <input
+      formControlName="address"
+      type="text"
+      class="form-control mt-2"
+      placeholder=""
+    />
+  </div>
+  <div class="container ml-r">
+    <button class="col-1 btn btn-light mt-6">
+      <a routerLink="/customers" class="nav-link active" aria-current="page"
+        >Cancel</a
+      >
+    </button>
+    <button
+      [disabled]="editCustomerForm.invalid"
+      type="submit"
+      class="btn btn-primary col-1"
+    >
+      Save
+    </button>
+  </div>
+</form>

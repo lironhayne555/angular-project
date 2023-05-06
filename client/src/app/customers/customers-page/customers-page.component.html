@@ -1,0 +1,83 @@
+<app-title [title]="customersTitle" [icon]="iconClass"></app-title>
+<form
+  [formGroup]="addCustomerForm"
+  (ngSubmit)="onSubmit()"
+  class="row mb-4 mt-3 p-3"
+>
+  <div class="col">
+    <input
+      formControlName="firstName"
+      type="text"
+      class="form-control"
+      placeholder="First Name"
+    />
+  </div>
+  <div class="col">
+    <input
+      formControlName="lastName"
+      type="text"
+      class="form-control"
+      placeholder="Last Name"
+    />
+  </div>
+  <div class="col">
+    <input
+      formControlName="phone"
+      type="text"
+      class="form-control"
+      placeholder="Phone"
+    />
+  </div>
+  <div class="col">
+    <input
+      formControlName="email"
+      type="text"
+      class="form-control"
+      placeholder="email@gmail.com"
+    />
+  </div>
+  <div class="col">
+    <button
+      [disabled]="addCustomerForm.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      <i class="fa-solid fa-plus-large"></i>
+      Add Customer
+    </button>
+  </div>
+</form>
+<table class="table table-bordered w-75 text-left p-3 container">
+  <thead class="">
+    <tr>
+      <th class="p-3" scope="col">NO.</th>
+      <th class="p-3" scope="col">First Name</th>
+      <th class="p-3" scope="col">Last Name</th>
+      <th class="p-3" scope="col">Phone</th>
+      <th class="p-3" scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody class="">
+    <tr *ngFor="let customer of customers">
+      <td class="p-3">
+        {{ customers.indexOf(customer) + 1 }}
+        <a routerLink="/edit-customer/{{ customer._id }}" class="btn btn-light">
+          <i class="bi bi-pencil text-primary"></i>
+        </a>
+        <a
+          routerLink="/customer-details/{{ customer._id }}"
+          class="btn btn-light"
+        >
+          <i class="bi bi-eye-fill"></i>
+        </a>
+        <button (click)="onDelete(customer)" class="btn btn-light">
+          <i class="bi bi-trash text-danger"></i>
+        </button>
+      </td>
+      <td class="p-3">{{ customer.firstName }}</td>
+      <td class="p-3">{{ customer.lastName }}</td>
+      <td class="p-3">{{ customer.phone }}</td>
+      <td class="p-3">{{ customer.email }}</td>
+    </tr>
+  </tbody>
+</table>

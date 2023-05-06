@@ -1,0 +1,61 @@
+<app-title [title]="customersTitle" [icon]="iconClass"></app-title>
+<form
+  [formGroup]="customerDetailsForm"
+  class="row mb-4 container d-flex justify-content-center mt-3"
+>
+  <div class="col">
+    <div>First Name</div>
+    <input
+      formControlName="firstName"
+      type="text"
+      class="form-control"
+      placeholder="First Name"
+      readonly
+    />
+  </div>
+  <div class="col">
+    <div>Last Name</div>
+    <input
+      formControlName="lastName"
+      type="text"
+      class="form-control"
+      placeholder="Last Name"
+      readonly
+    />
+  </div>
+  <div class="col">
+    <div>Phone</div>
+    <input
+      formControlName="phone"
+      type="text"
+      class="form-control"
+      placeholder="Phone"
+      readonly
+    />
+  </div>
+  <div class="col">
+    <div>Email</div>
+    <input
+      formControlName="email"
+      type="text"
+      class="form-control"
+      placeholder="email@gmail.com"
+      readonly
+    />
+  </div>
+  <div class="col">
+    <div>Address</div>
+    <input
+      formControlName="address"
+      type="text"
+      class="form-control"
+      placeholder=""
+      readonly
+    />
+  </div>
+</form>
+<button class="btn btn-light position-relative">
+  <a routerLink="/customers" class="nav-link active" aria-current="page"
+    >Back</a
+  >
+</button>
