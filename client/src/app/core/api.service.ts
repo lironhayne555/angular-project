@@ -10,7 +10,7 @@ export class ApiService {
 
   private serverURL= "http://localhost:3000/";
 
-  private userInfo='';
+  private userInfo='user';
 
   private TOKEN_KEY= 'token';
   
@@ -102,8 +102,18 @@ getEmployees(): Observable<Array<Employee>> {
   localStorage.setItem(this.userInfo, value)
  }
 
- getUserInfo(): string{
-  const user = JSON.parse(localStorage.getItem(this.userInfo) || '');
-  return user
- }
+ getUserInfo(): User | null | undefined{
+  if(localStorage.getItem(this.userInfo))
+  {
+    const user = JSON.parse(localStorage.getItem(this.userInfo) || '');
+    return user
+  }
+  else{
+    let demo = {name: '',email:''}
+    return demo;
+  }
+}
+getUsers(): Observable<Array<User>> {
+  return this.GET<Array<Employee>>('users');
+}
 }

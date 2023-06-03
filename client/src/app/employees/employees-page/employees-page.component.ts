@@ -13,8 +13,6 @@ export class EmployeesPageComponent implements OnInit {
   @Input () email ='';
   filterData: Array<Employee> =[];
 
-  searchField = '';
-
   employees : Array<Employee> = [];
 
   constructor ( private api : ApiService ) {}
